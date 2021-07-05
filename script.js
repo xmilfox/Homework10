@@ -1,4 +1,4 @@
-//завдання 1
+// завдання 1
 let arr = ["Tom", "Sam", "Ray", "Bob"];
 let [x, y, , ...z] = arr;
 console.log(x);
@@ -22,7 +22,7 @@ console.log(name4);
 console.log(age4);
 
 
-// завдання 3
+// завдання3
 
 
 function mul(...data) {
@@ -46,11 +46,34 @@ console.log(mul(null, "str", false, true));
 
 
 
-
-
-  
-
 //завдання 4
+
+  let server = {
+    data: 0,
+    convertToString: function (calback) {
+      calback (()=> {
+        return this.data + '';
+      });
+    }
+  };
+  let client ={
+    server: server,
+    result: "",
+    calc: function(data) {
+      this.server.data = data;
+      this.server.convertToString(this.notification());
+    },
+    notification: function(){
+      return (calback => {
+        this.result = calback();
+      });
+    }
+  };
+  client.calc(123);
+  console.log (client.result);
+  console.log (typeof client.result);
+
+//завдання 5 
 
 let keys = [1, 2, 3, 4];
 let values = ["div", "span", "b", "i"];
